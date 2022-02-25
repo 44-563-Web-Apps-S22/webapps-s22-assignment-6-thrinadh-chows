@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>President guess by ThrinadhChowdary Gutta</title>
+        <title>President title</title>
     </head>
  
 <body>
 
-<h2>Getting input</h2>
+<h2>President guess by ThrinadhChowdary Gutta</h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <label for="secret_President">Enter the secret President name </label>
+    <input type ="text" id="secret_President" name="secret_President" value="George Washington"> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <label for="guess_president">Guess the president</label>
+        <input type="text" id="guess_president" name="guess_president" autofocus> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" onclick="checkGuess()" value="heck the guess">
 </form>
 
 
@@ -23,19 +23,22 @@
 
 <script> 
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
-}
+let correct = 0, wrong = 0;
+        function checkGuess() {
+            console.log("Getting form values");
+            secret = document.getElementById("secret_president").value;
+            guess = document.getElementById("guess_president").value;
+            out = document.getElementById("result");
+            if (secret == guess) {
+                correct++;
+                alert("You got it right");
+                out.innerHTML = "Correct " + correct +  " Wrong " + wrong;
+            } else {
+                wrong++
+                alert("Wrong President");
+                out.innerHTML =  "Correct " + correct +  " Wrong " + wrong;
+            }
+        }
 </script>
 
 </body>
