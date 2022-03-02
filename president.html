@@ -3,6 +3,31 @@
     <head>
         <title>President title</title>
     </head>
+    <style>
+        label {
+            display: inline-block;
+            width: 150px;
+        }
+        
+        p {
+            background-color:crimson;
+            color:black;
+            display: inline;
+        }
+        
+        p:hover {
+            background-color:aqua;
+            color:azure;
+            display: inline;
+        }
+        
+        h2 {
+            background-color:brown;
+            color: white;
+            display: inline-block;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        </style>
  
 <body>
 
@@ -22,7 +47,7 @@
 <p id="result">This text will be replaced </p>
 
 <script>
-    let correct = 0, wrong = 0;
+    let correct = 0, wrong = 0, c=0;
     function checkGuess() {
         console.log("Getting form values");
         secret = document.getElementById("secret_president").value;
@@ -32,11 +57,22 @@
             correct++;
             alert("You got it right");
             out.innerHTML = "Correct: " + correct +  " Wrong: " + wrong;
+            c=0
         } else {
             wrong++
             alert("Wrong President");
             out.innerHTML =  "Correct:  " + correct +  " Wrong:  " + wrong;
+            c = c+1
+            console.log(c)
         }
+        if(c == 3){
+        document.getElementById("in").onclick = lock
+    }
+
+    function lock(){
+            alert("Sorry, game over.")
+        }
+
     }
 </script>
 <div>
