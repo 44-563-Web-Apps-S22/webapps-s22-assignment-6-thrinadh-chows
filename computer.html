@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+ 
+    <head>
+        <title>Computer page</title>
+    </head>
+    
+    <body>
+    
+        <h2>ThrinadhChowdary Gutta orders a computer</h2>
+    
+        <form>
+            <input type="checkbox" id="check_1" name="check_1" value="extra">
+            <label for="check_1">Extra memory</label></br>
+    
+            <input type="checkbox" id="check_2" name="check_2" value="mouse">
+            <label for="check_2">Mouse</label></br>
+    
+            <input type="checkbox" id="check_3" name="check_3" value="cell">
+            <label for="check_3">Cell service</label></br>
+    
+            <input type="button" onclick="orderComputer()" value="Order a computer">
+        </form>
+    
+        <form>
+            <br>
+            <input type="text" id="prop" name="prop" value="engraved">
+            <label for="prop">Enter a property name</label></br>
+            
+    
+            <input type="text" id="prop_value" name="prop_value">
+            <label for="prop_value">Enter a value</label></br>
+            <br>
+            <input type="button" value="Update the computer" onclick="updateComputer()">
+        </form>
+    
+    
+        <p id="result">This text will be replaced </p>
+    
+        <script>
+            var my_computer = {}
+            out = document.getElementById("result")
+    
+            function orderComputer() {
+                var my_computer = {}
+                console.log("Getting form values")
+                extra = document.getElementById("check_1").checked
+                mouse = document.getElementById("check_2").checked
+                cell = document.getElementById("check_3").checked
+    
+                
+                if (extra) {
+                    my_computer.extra = true
+                }else{
+                    my_computer.extra = false
+                }
+                if (mouse) {
+                    my_computer.mouse = true
+                }
+                else
+                {
+                    my_computer.mouse = false
+                }
+                if (cell) {
+                    my_computer.cell = true
+                }
+                else
+                {
+                    my_computer.cell=false
+                }
+                document.getElementById("result").innerHTML = "extra: " + my_computer.extra + " mouse: " + my_computer.mouse + " cell: " + my_computer.cell
+            }
+      
+        </script>
+    
+    </body>
+</html> 
