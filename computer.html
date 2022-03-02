@@ -71,6 +71,15 @@
                 document.getElementById("result").innerHTML = "extra: " + my_computer.extra + " mouse: " + my_computer.mouse + " cell: " + my_computer.cell
             }
       
+            function updateComputer()
+       {
+           var property= document.getElementById("prop").value
+           var property_value= document.getElementById("prop_value").value
+           my_computer[property]=property_value
+           out.innerHTML = "my_Computer[]=  " + JSON.stringify(my_computer);
+           
+       }
+            
         </script>
     
     </body>
