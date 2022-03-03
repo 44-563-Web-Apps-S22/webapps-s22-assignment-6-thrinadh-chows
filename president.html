@@ -47,7 +47,7 @@
 <p id="result">This text will be replaced </p>
 
 <script>
-    let correct = 0, wrong = 0, ;
+    let correct = 0, wrong = 0 ;
     function checkGuess() {
         console.log("Getting form values");
         secret = document.getElementById("secret_president").value;
@@ -57,15 +57,15 @@
             correct++;
             alert("You got it right");
             out.innerHTML = "Correct: " + correct +  " Wrong: " + wrong;
-            c=0
+            
         } else {
             wrong++
             alert("Wrong President");
             out.innerHTML =  "Correct:  " + correct +  " Wrong:  " + wrong;
-            c = c+1
-            console.log(c)
+            
+            
         }
-        if(wrong == 3){
+        if(wrong == 2){
         document.getElementById("in").onclick = lock
     }
 

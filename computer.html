@@ -1,86 +1,83 @@
 <!DOCTYPE html>
 <html>
- 
-    <head>
-        <title>Computer page</title>
-    </head>
+ <head>
+     <title>computer page</title>
+ </head>
+<body>
+
+<h2>ThrinadhChowdary Gutta orders a computer</h2>
+
+<form>
+    <label for="memory">Extra memory </label>
+    <input type ="checkbox" id="memory"  value="extra"> <br>
+
+    <label for="Mouse">Mouse</label>
+    <input type ="checkbox" id="mouse" value="mouse"> <br>
+
+    <label for="cell">Cell service</label>
+    <input type ="checkbox" id="cell" value="cell"> <br>
+
+
+    <input type="button" onclick="orderComputer()" value="Order a computer">
+</form>
+
+
+<p id="result" >result...</p>
+
+
+<script> 
+var my_computer={}
+
+function orderComputer(){
+    let my_computer={}
+    memory=document.getElementById("memory").checked    
     
-    <body>
-    
-        <h2>ThrinadhChowdary Gutta orders a computer</h2>
-    
-        <form>
-            <input type="checkbox" id="check_1" name="check_1" value="extra">
-            <label for="check_1">Extra memory</label></br>
-    
-            <input type="checkbox" id="check_2" name="check_2" value="mouse">
-            <label for="check_2">Mouse</label></br>
-    
-            <input type="checkbox" id="check_3" name="check_3" value="cell">
-            <label for="check_3">Cell service</label></br>
-    
-            <input type="button" onclick="orderComputer()" value="Order a computer">
-        </form>
-    
-        <form>
-            <br>
-            <input type="text" id="prop" name="prop" value="engraved">
-            <label for="prop">Enter a property name</label></br>
-            
-    
-            <input type="text" id="prop_value" name="prop_value">
-            <label for="prop_value">Enter a value</label></br>
-            <br>
-            <input type="button" value="Update the computer" onclick="updateComputer()">
-        </form>
-    
-    
-        <p id="result">This text will be replaced </p>
-    
-        <script>
-            var my_computer = {}
-            out = document.getElementById("result")
-    
-            function orderComputer() {
-                var my_computer = {}
-                console.log("Getting form values")
-                extra = document.getElementById("check_1").checked
-                mouse = document.getElementById("check_2").checked
-                cell = document.getElementById("check_3").checked
-    
-                
-                if (extra) {
-                    my_computer.extra = true
-                }else{
-                    my_computer.extra = false
-                }
-                if (mouse) {
-                    my_computer.mouse = true
-                }
-                else
-                {
-                    my_computer.mouse = false
-                }
-                if (cell) {
-                    my_computer.cell = true
-                }
-                else
-                {
-                    my_computer.cell=false
-                }
-                document.getElementById("result").innerHTML = "extra: " + my_computer.extra + " mouse: " + my_computer.mouse + " cell: " + my_computer.cell
-            }
-      
-            function updateComputer()
-       {
-           var property= document.getElementById("prop").value
-           var property_value= document.getElementById("prop_value").value
-           my_computer[property]=property_value
-           out.innerHTML = "my_Computer[]=  " + JSON.stringify(my_computer);
-           
-       }
-            
-        </script>
-    
-    </body>
-</html> 
+    if(memory){
+        my_computer.memory=true;
+    }
+    else{
+        my_computer.memory=false;
+    }
+
+    mouse=document.getElementById("mouse").checked
+
+    if(mouse){
+        my_computer.mouse=true;
+    }
+    else{
+        my_computer.mouse=false;
+    }
+    cell=document.getElementById("cell").checked
+    if(cell){
+        my_computer.cell=true;
+    }
+    else{
+        my_computer.cell=false;
+    }
+    document.getElementById("result").innerHTML="extra_memory: "+my_computer.memory+"<br> mouse: "+my_computer.mouse+" <br> Cell: "+my_computer.cell
+
+}
+</script>
+<form>
+    <label for="property">Enter a property name </label>
+    <input type ="text" id="property"  value="engraved"> <br>
+
+    <label for="value">Enter a value</label>
+    <input type ="text" id="pvalue" > <br>
+
+    <input type="button" onclick="updateComputer()" value="Update the computer">
+</form>
+<p id="result1">text...</p>
+<script>
+    function updateComputer(){
+        var propertyname=document.getElementById("property").value
+        var propertyvalue=document.getElementById("pvalue").value
+        my_computer[propertyname]=propertyvalue
+        document.getElementById("result1").innerHTML = "my_computer[]=  " + JSON.stringify(my_computer);
+
+    }
+</script>
+
+
+</body>
+</html>
